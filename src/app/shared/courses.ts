@@ -8,7 +8,7 @@ export const courses: Course[] = [
     instructor: 'John Doe',
     hours: 20,
     likes: 1500,
-    image: 'https://dummyimage.com/200x100/000/fff',
+    image: 'assets/images/angular.png',
     reviews: [
       {
         user: 'Jane',
@@ -33,7 +33,7 @@ export const courses: Course[] = [
     instructor: 'Jane Doe',
     hours: 30,
     likes: 1000,
-    image: 'https://dummyimage.com/200x100/fff/000',
+    image: 'assets/images/js.png',
     reviews: [
       {
         user: 'John',
@@ -59,7 +59,7 @@ export const courses: Course[] = [
     instructor: 'Jim Smith',
     hours: 25,
     likes: 1300,
-    image: 'https://dummyimage.com/200x100/123/456',
+    image: 'assets/images/react.jpg',
     reviews: [
       {
         user: 'Emily',
@@ -86,7 +86,7 @@ export const courses: Course[] = [
     instructor: 'Sarah Johnson',
     hours: 22,
     likes: 1400,
-    image: 'https://dummyimage.com/200x100/456/123',
+    image: 'assets/images/node.jpg',
     reviews: [
       {
         user: 'Alex',
@@ -107,7 +107,7 @@ export const courses: Course[] = [
     instructor: 'Tom Brown',
     hours: 18,
     likes: 900,
-    image: 'https://dummyimage.com/200x100/789/321',
+    image: 'assets/images/express.png',
     reviews: [
       {
         user: 'Emma',
@@ -133,7 +133,7 @@ export const courses: Course[] = [
     instructor: 'Linda Davis',
     hours: 16,
     likes: 800,
-    image: 'https://dummyimage.com/200x100/321/789',
+    image: 'assets/images/sql.png',
     reviews: [
       {
         user: 'Oliver',
@@ -158,7 +158,7 @@ export const courses: Course[] = [
     instructor: 'David Wilson',
     hours: 20,
     likes: 700,
-    image: 'https://dummyimage.com/200x100/369/147',
+    image: 'assets/images/mongo.png',
     reviews: [
       {
         user: 'Ava',
@@ -184,7 +184,7 @@ export const courses: Course[] = [
     instructor: 'Alex Rodriguez',
     hours: 22,
     likes: 600,
-    image: 'https://dummyimage.com/200x100/147/369',
+    image: 'assets/images/rest.png',
     reviews: [
       {
         user: 'Elijah',

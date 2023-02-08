@@ -11,9 +11,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { CourseEditComponent } from './course-edit/course-edit.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseListComponent, HeaderComponent],
+  declarations: [AppComponent, CourseListComponent, HeaderComponent, CourseEditComponent, CourseDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
