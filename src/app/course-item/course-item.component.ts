@@ -8,4 +8,16 @@ import { Component, Input } from '@angular/core';
 })
 export class CourseItemComponent {
   @Input() course!: Course;
+
+  review() {
+    this.course.reviews.push({
+      rating: Math.random() * 5,
+      review: 'nice course',
+      user: 'Ahmed',
+    });
+  }
+
+  like() {
+    this.course.likes++;
+  }
 }

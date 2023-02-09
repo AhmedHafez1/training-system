@@ -7,8 +7,27 @@
     <img [src]="course.image" />
   </div>
   <mat-card-content>
-    <p>Hours: {{ course.hours }}</p>
-    <p>Likes: {{ course.likes }}</p>
-    <p>Reviews: {{ course.reviews.length }}</p>
+    <div class="content">
+      <mat-icon class="icon icon__hour" aria-hidden="false"
+        >access_time</mat-icon
+      >
+      {{ course.hours }}
+    </div>
+    <div class="content">
+      <mat-icon class="icon icon__like" aria-hidden="false" (click)="like()"
+        >thumb_up</mat-icon
+      >
+      {{ course.likes }}
+    </div>
+    <div class="content">
+      <mat-icon
+        color="primary"
+        class="icon icon__review"
+        aria-hidden="false"
+        (click)="review()"
+        >comment</mat-icon
+      >
+      {{ course.reviews.length }}
+    </div>
   </mat-card-content>
 </mat-card>
