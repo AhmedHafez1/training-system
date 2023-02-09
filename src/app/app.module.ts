@@ -13,9 +13,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
+import { CourseItemComponent } from './course-item/course-item.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseListComponent, HeaderComponent, CourseEditComponent, CourseDetailsComponent],
+  declarations: [AppComponent, CourseListComponent, HeaderComponent, CourseEditComponent, CourseDetailsComponent, CourseItemComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

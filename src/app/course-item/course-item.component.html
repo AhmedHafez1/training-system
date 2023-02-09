@@ -1,0 +1,14 @@
+<mat-card class="course-card" color="secondary">
+  <mat-card-header>
+    <mat-card-title>{{ course.name }}</mat-card-title>
+    <mat-card-subtitle>{{ course.instructor }}</mat-card-subtitle>
+  </mat-card-header>
+  <div class="header-image">
+    <img [src]="course.image" />
+  </div>
+  <mat-card-content>
+    <p>Hours: {{ course.hours }}</p>
+    <p>Likes: {{ course.likes }}</p>
+    <p>Reviews: {{ course.reviews.length }}</p>
+  </mat-card-content>
+</mat-card>
