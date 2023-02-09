@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Course } from './../shared/models/course';
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from '../course.service';
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./course-details.component.scss'],
 })
 export class CourseDetailsComponent implements OnInit {
-  public course!: Course;
+  public course$!: Observable<Course>;
 
   constructor(
     private courseService: CourseService,
@@ -17,6 +18,6 @@ export class CourseDetailsComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     const id = +this.activatedRoute.snapshot.paramMap.get('id')!;
-    this.course = this.courseService.getCourse(id);
+    this.course$ = this.courseService.getCourse(id);
   }
 }

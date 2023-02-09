@@ -1,6 +1,5 @@
-import { COURSES } from './../shared/courses';
+import { Observable } from 'rxjs';
 import { Component, Inject, inject, OnInit } from '@angular/core';
-import { courses } from '../shared/courses';
 import { Course } from '../shared/models/course';
 import { CourseService } from '../course.service';
 
@@ -10,11 +9,11 @@ import { CourseService } from '../course.service';
   styleUrls: ['./course-list.component.scss'],
 })
 export class CourseListComponent implements OnInit {
-  public courses!: Course[];
+  public courses$!: Observable<Course[]>;
 
   constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
-    this.courses = this.courseService.getCouses();
+    this.courses$ = this.courseService.getCouses();
   }
 }

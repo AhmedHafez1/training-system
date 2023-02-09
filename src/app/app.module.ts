@@ -1,11 +1,10 @@
 import { MatCardModule } from '@angular/material/card';
-import { NgModule } from '@angular/core';
+import { NgModule, InjectionToken } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CourseListComponent } from './course-list/course-list.component';
-import { courses, COURSES } from './shared/courses';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
@@ -15,7 +14,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { CourseItemComponent } from './course-item/course-item.component';
+import { HttpClientModule } from '@angular/common/http';
 
+export const API_URL = new InjectionToken<string>('API_URL');
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     MatCardModule,
     MatToolbarModule,
     MatButtonModule,
@@ -35,7 +37,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
     MatIconModule,
     MatDividerModule,
   ],
-  providers: [{ provide: COURSES, useValue: courses }],
+  providers: [{ provide: API_URL, useValue: 'http://localhost:3000' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

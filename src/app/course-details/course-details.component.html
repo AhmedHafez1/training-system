@@ -1,4 +1,4 @@
-<mat-card class="course-detail-card">
+<mat-card class="course-detail-card" *ngIf="course$ | async as course">
   <div class="header-image">
     <img [src]="course.image" />
     <mat-card-header>
