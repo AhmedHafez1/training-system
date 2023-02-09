@@ -1,1 +1,31 @@
-<p>course-details works!</p>
+<mat-card class="course-detail-card">
+  <div class="header-image">
+    <img [src]="course.image" />
+    <mat-card-header>
+      <mat-card-title>{{ course.name }}</mat-card-title>
+      <mat-card-subtitle>{{ course.instructor }}</mat-card-subtitle>
+    </mat-card-header>
+  </div>
+  <mat-card-content>
+    <div class="course-info">
+      <p><mat-icon class="icon">schedule</mat-icon>{{ course.hours }} hours</p>
+      <p><mat-icon class="icon">thumb_up</mat-icon>{{ course.likes }} likes</p>
+      <p>
+        <mat-icon class="icon">rate_review</mat-icon
+        >{{ course.reviews.length }} reviews
+      </p>
+    </div>
+    <mat-divider></mat-divider>
+    <h3>Reviews</h3>
+    <div *ngFor="let review of course.reviews">
+      <p>
+        <b>{{ review.user }}</b>
+      </p>
+      <p>{{ review.review }}</p>
+      <p class="rating">
+        <mat-icon class="icon">star</mat-icon>{{ review.rating }}/5
+      </p>
+      <mat-divider></mat-divider>
+    </div>
+  </mat-card-content>
+</mat-card>

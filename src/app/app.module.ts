@@ -11,12 +11,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 import { CourseEditComponent } from './course-edit/course-edit.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { CourseItemComponent } from './course-item/course-item.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseListComponent, HeaderComponent, CourseEditComponent, CourseDetailsComponent, CourseItemComponent],
+  declarations: [
+    AppComponent,
+    CourseListComponent,
+    HeaderComponent,
+    CourseEditComponent,
+    CourseDetailsComponent,
+    CourseItemComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +33,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
     MatButtonModule,
     BrowserAnimationsModule,
     MatIconModule,
+    MatDividerModule,
   ],
   providers: [{ provide: COURSES, useValue: courses }],
   bootstrap: [AppComponent],

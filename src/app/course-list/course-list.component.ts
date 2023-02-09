@@ -2,6 +2,7 @@ import { COURSES } from './../shared/courses';
 import { Component, Inject, inject, OnInit } from '@angular/core';
 import { courses } from '../shared/courses';
 import { Course } from '../shared/models/course';
+import { CourseService } from '../course.service';
 
 @Component({
   selector: 'app-course-list',
@@ -9,7 +10,11 @@ import { Course } from '../shared/models/course';
   styleUrls: ['./course-list.component.scss'],
 })
 export class CourseListComponent implements OnInit {
-  constructor(@Inject(COURSES) public courses: Course[]) {}
+  public courses!: Course[];
 
-  ngOnInit(): void {}
+  constructor(private courseService: CourseService) {}
+
+  ngOnInit(): void {
+    this.courses = this.courseService.getCouses();
+  }
 }

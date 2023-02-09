@@ -4,13 +4,11 @@
     <mat-card-subtitle>{{ course.instructor }}</mat-card-subtitle>
   </mat-card-header>
   <div class="header-image">
-    <img [src]="course.image" />
+    <img [src]="course.image" [routerLink]="[course.id]" />
   </div>
   <mat-card-content>
     <div class="content">
-      <mat-icon class="icon icon__hour" aria-hidden="false"
-        >access_time</mat-icon
-      >
+      <mat-icon class="icon icon__hour" aria-hidden="false">schedule</mat-icon>
       {{ course.hours }}
     </div>
     <div class="content">
@@ -25,7 +23,7 @@
         class="icon icon__review"
         aria-hidden="false"
         (click)="review()"
-        >comment</mat-icon
+        >rate_review</mat-icon
       >
       {{ course.reviews.length }}
     </div>
