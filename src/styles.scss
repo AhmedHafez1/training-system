@@ -9,6 +9,30 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-mat-card-title {
-  color: indigo;
+mat-card-content {
+  display: flex;
+  align-items: center;
+  .content {
+    margin: 10px;
+    color: #555;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+}
+
+.icon {
+  &__like {
+    color: rgb(0, 110, 255);
+  }
+  &__hour {
+    color: green;
+  }
+  &__review {
+    color: orangered;
+  }
+  &__star {
+    color: goldenrod;
+  }
 }

@@ -33,25 +33,14 @@ mat-card-subtitle {
 mat-card-content {
   display: flex;
   align-items: center;
-  .content {
-    margin: 10px;
-    color: #555;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    .icon {
-      &__like {
-        color: rgb(0, 110, 255);
-        cursor: pointer;
-      }
-      &__hour {
-        color: green;
-      }
-      &__review {
-        color: orangered;
-        cursor: pointer;
-      }
-    }
+}
+
+.icon {
+  &__like {
+    cursor: pointer;
+  }
+
+  &__review {
+    cursor: pointer;
   }
 }
