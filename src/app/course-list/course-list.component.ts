@@ -14,6 +14,6 @@ export class CourseListComponent implements OnInit {
   constructor(private courseService: CourseService) {}
 
   ngOnInit(): void {
-    this.courses$ = this.courseService.getCouses();
+    this.courses$ = this.courseService.getCourses();
   }
 }

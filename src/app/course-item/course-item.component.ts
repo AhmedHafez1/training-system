@@ -11,6 +11,7 @@ export class CourseItemComponent {
 
   review() {
     this.course.reviews.push({
+      courseId: this.course.id,
       rating: Math.random() * 5,
       review: 'nice course',
       user: 'Ahmed',

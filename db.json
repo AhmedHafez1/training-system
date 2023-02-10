@@ -11,17 +11,20 @@
         {
           "user": "Jane",
           "rating": 4.5,
-          "review": "The course was really helpful and well explained."
+          "review": "The course was really helpful and well explained.",
+          "courseId": 1
         },
         {
           "user": "Mike",
           "rating": 4,
-          "review": "The instructor was knowledgeable and engaging."
+          "review": "The instructor was knowledgeable and engaging.",
+          "courseId": 1
         },
         {
           "user": "Sarah",
           "rating": 4.8,
-          "review": "The course material was comprehensive and easy to understand."
+          "review": "The course material was comprehensive and easy to understand.",
+          "courseId": 1
         }
       ]
     },
@@ -36,17 +39,20 @@
         {
           "user": "John",
           "rating": 4,
-          "review": "The course was well structured and covered advanced topics well."
+          "review": "The course was well structured and covered advanced topics well.",
+          "courseId": 2
         },
         {
           "user": "Jane",
           "rating": 4.5,
-          "review": "The instructor was very knowledgeable and patient."
+          "review": "The instructor was very knowledgeable and patient.",
+          "courseId": 2
         },
         {
           "user": "Mark",
           "rating": 4.2,
-          "review": "The course was challenging but worth it."
+          "review": "The course was challenging but worth it.",
+          "courseId": 2
         }
       ]
     },
@@ -61,17 +67,20 @@
         {
           "user": "Emily",
           "rating": 4.2,
-          "review": "The course provided a solid foundation in React."
+          "review": "The course provided a solid foundation in React.",
+          "courseId": 3
         },
         {
           "user": "Chris",
           "rating": 4.5,
-          "review": "The instructor was excellent and made the material easy to understand."
+          "review": "The instructor was excellent and made the material easy to understand.",
+          "courseId": 3
         },
         {
           "user": "Ryan",
           "rating": 4,
-          "review": "The course was a good introduction to React, but could be more in-depth."
+          "review": "The course was a good introduction to React, but could be more in-depth.",
+          "courseId": 3
         }
       ]
     },
@@ -86,12 +95,14 @@
         {
           "user": "Alex",
           "rating": 4.7,
-          "review": "The course was very informative and provided a great introduction to Node.js."
+          "review": "The course was very informative and provided a great introduction to Node.js.",
+          "courseId": 4
         },
         {
           "user": "Samuel",
           "rating": 4.3,
-          "review": "The instructor was clear in explanation"
+          "review": "The instructor was clear in explanation",
+          "courseId": 4
         }
       ]
     },
@@ -106,17 +117,20 @@
         {
           "user": "Emma",
           "rating": 4.1,
-          "review": "The course was a great introduction to Express.js."
+          "review": "The course was a great introduction to Express.js.",
+          "courseId": 5
         },
         {
           "user": "Liam",
           "rating": 4.4,
-          "review": "The instructor was knowledgeable and made the course interesting."
+          "review": "The instructor was knowledgeable and made the course interesting.",
+          "courseId": 5
         },
         {
           "user": "Mia",
           "rating": 4.3,
-          "review": "The course was well structured and easy to follow."
+          "review": "The course was well structured and easy to follow.",
+          "courseId": 5
         }
       ]
     },
@@ -131,17 +145,20 @@
         {
           "user": "Oliver",
           "rating": 4.2,
-          "review": "The course was a great introduction to SQL."
+          "review": "The course was a great introduction to SQL.",
+          "courseId": 6
         },
         {
           "user": "Sophia",
           "rating": 4.3,
-          "review": "The instructor was knowledgeable and engaging."
+          "review": "The instructor was knowledgeable and engaging.",
+          "courseId": 6
         },
         {
           "user": "William",
           "rating": 4.1,
-          "review": "The course was well structured, but could be more in-depth."
+          "review": "The course was well structured, but could be more in-depth.",
+          "courseId": 6
         }
       ]
     },
@@ -156,17 +173,20 @@
         {
           "user": "Ava",
           "rating": 4.5,
-          "review": "The course was comprehensive and well explained."
+          "review": "The course was comprehensive and well explained.",
+          "courseId": 7
         },
         {
           "user": "Ethan",
           "rating": 4.2,
-          "review": "The instructor was knowledgeable and made the course interesting."
+          "review": "The instructor was knowledgeable and made the course interesting.",
+          "courseId": 7
         },
         {
           "user": "Isabelle",
           "rating": 4.4,
-          "review": "The course was well structured and easy to follow."
+          "review": "The course was well structured and easy to follow.",
+          "courseId": 7
         }
       ]
     },
@@ -181,19 +201,162 @@
         {
           "user": "Elijah",
           "rating": 4.3,
-          "review": "The course was a great introduction to RESTful API design."
+          "review": "The course was a great introduction to RESTful API design.",
+          "courseId": 8
         },
         {
           "user": "Scarlett",
           "rating": 4.2,
-          "review": "The instructor was knowledgeable and engaging."
+          "review": "The instructor was knowledgeable and engaging.",
+          "courseId": 8
         },
         {
           "user": "Mason",
           "rating": 4.1,
-          "review": "The course was well structured, but could be more in-depth."
+          "review": "The course was well structured, but could be more in-depth.",
+          "courseId": 8
         }
       ]
+    }
+  ],
+  "reviews": [
+    {
+      "user": "Jane",
+      "rating": 4.5,
+      "review": "The course was really helpful and well explained.",
+      "courseId": 1
+    },
+    {
+      "user": "Mike",
+      "rating": 4,
+      "review": "The instructor was knowledgeable and engaging.",
+      "courseId": 1
+    },
+    {
+      "user": "Sarah",
+      "rating": 4.8,
+      "review": "The course material was comprehensive and easy to understand.",
+      "courseId": 1
+    },
+    {
+      "user": "John",
+      "rating": 4,
+      "review": "The course was well structured and covered advanced topics well.",
+      "courseId": 2
+    },
+    {
+      "user": "Jane",
+      "rating": 4.5,
+      "review": "The instructor was very knowledgeable and patient.",
+      "courseId": 2
+    },
+    {
+      "user": "Mark",
+      "rating": 4.2,
+      "review": "The course was challenging but worth it.",
+      "courseId": 2
+    },
+    {
+      "user": "Emily",
+      "rating": 4.2,
+      "review": "The course provided a solid foundation in React.",
+      "courseId": 3
+    },
+    {
+      "user": "Chris",
+      "rating": 4.5,
+      "review": "The instructor was excellent and made the material easy to understand.",
+      "courseId": 3
+    },
+    {
+      "user": "Ryan",
+      "rating": 4,
+      "review": "The course was a good introduction to React, but could be more in-depth.",
+      "courseId": 3
+    },
+    {
+      "user": "Alex",
+      "rating": 4.7,
+      "review": "The course was very informative and provided a great introduction to Node.js.",
+      "courseId": 4
+    },
+    {
+      "user": "Samuel",
+      "rating": 4.3,
+      "review": "The instructor was clear in explanation",
+      "courseId": 4
+    },
+    {
+      "user": "Emma",
+      "rating": 4.1,
+      "review": "The course was a great introduction to Express.js.",
+      "courseId": 5
+    },
+    {
+      "user": "Liam",
+      "rating": 4.4,
+      "review": "The instructor was knowledgeable and made the course interesting.",
+      "courseId": 5
+    },
+    {
+      "user": "Mia",
+      "rating": 4.3,
+      "review": "The course was well structured and easy to follow.",
+      "courseId": 5
+    },
+    {
+      "user": "Oliver",
+      "rating": 4.2,
+      "review": "The course was a great introduction to SQL.",
+      "courseId": 6
+    },
+    {
+      "user": "Sophia",
+      "rating": 4.3,
+      "review": "The instructor was knowledgeable and engaging.",
+      "courseId": 6
+    },
+    {
+      "user": "William",
+      "rating": 4.1,
+      "review": "The course was well structured, but could be more in-depth.",
+      "courseId": 6
+    },
+    {
+      "user": "Ava",
+      "rating": 4.5,
+      "review": "The course was comprehensive and well explained.",
+      "courseId": 7
+    },
+    {
+      "user": "Ethan",
+      "rating": 4.2,
+      "review": "The instructor was knowledgeable and made the course interesting.",
+      "courseId": 7
+    },
+    {
+      "user": "Isabelle",
+      "rating": 4.4,
+      "review": "The course was well structured and easy to follow.",
+      "courseId": 7
+    },
+    {
+      "user": "Elijah",
+      "rating": 4.3,
+      "review": "The course was a great introduction to RESTful API design.",
+      "courseId": 8
+    },
+    {
+      "user": "Scarlett",
+      "rating": 4.2,
+      "review": "The instructor was knowledgeable and engaging.",
+      "courseId": 8
+    },
+    {
+      "user": "Mason",
+      "rating": 4.1,
+      "review": "The course was well structured, but could be more in-depth.",
+      "courseId": 8
     }
   ]
 }
