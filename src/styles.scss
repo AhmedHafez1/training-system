@@ -7,19 +7,7 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-
-mat-card-content {
-  display: flex;
-  align-items: center;
-  .content {
-    margin: 10px;
-    color: #555;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
+  overflow: hidden;
 }
 
 .icon {
@@ -35,4 +23,8 @@ mat-card-content {
   &__star {
     color: goldenrod;
   }
+}
+
+.mat-mdc-card-content > :last-child:not(.mat-mdc-card-footer) {
+  margin-bottom: auto !important;
 }

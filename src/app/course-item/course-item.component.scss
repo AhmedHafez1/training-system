@@ -30,9 +30,18 @@ mat-card-subtitle {
   color: #333;
 }
 
-mat-card-content {
+.course-info {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  .content {
+    margin: 10px;
+    color: #555;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
 }
 
 .icon {

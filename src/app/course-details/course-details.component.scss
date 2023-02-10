@@ -45,6 +45,14 @@ mat-card-subtitle.subtitle {
   display: flex;
   justify-content: space-around;
   margin: 20px 0;
+  .content {
+    margin: 10px;
+    color: #555;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
 }
 
 .reviews {

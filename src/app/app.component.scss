@@ -1,5 +1,6 @@
 .main-container {
   height: 100vh;
+  overflow: auto;
   &:before {
     content: "";
     position: absolute;
