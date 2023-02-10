@@ -23,14 +23,26 @@
     </div>
     <mat-divider></mat-divider>
     <div class="reviews">
-      <h3>Reviews</h3>
+      <div class="reviews__header">
+        <h3>Reviews</h3>
+        <button
+          mat-icon-button
+          color="accent"
+          matTooltip="Add review"
+          (click)="addReview()"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+
       <div *ngFor="let review of course.reviews" class="review">
         <p>
           <b>{{ review.user }}</b>
         </p>
         <p>{{ review.review }}</p>
         <p class="content">
-          <mat-icon class="icon icon__star">star</mat-icon>{{ review.rating }}
+          <mat-icon class="icon icon__star">star</mat-icon
+          ><span>{{ review.rating }}</span>
         </p>
         <mat-divider></mat-divider>
       </div>

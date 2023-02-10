@@ -4,6 +4,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Course } from './shared/models/course';
 import { Observable } from 'rxjs';
 import { Review } from './shared/models/review';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +22,9 @@ export class CourseService {
     return this.http.get<Course>(`${this.baseUrl}/${id}`);
   }
 
-  addReview(courseId: number, review: Review): Observable<Course> {
-    return this.http.post<Course>(
+  addReview(courseId: number, review: Review): Observable<Review> {
+    review.id = uuidv4();
+    return this.http.post<Review>(
       `${this.baseUrl}/${courseId}/reviews`,
       review
     );
@@ -32,8 +34,8 @@ export class CourseService {
     courseId: number,
     reviewId: number,
     review: Review
-  ): Observable<Course> {
-    return this.http.put<Course>(
+  ): Observable<Review> {
+    return this.http.put<Review>(
       `${this.baseUrl}/${courseId}/reviews/${reviewId}`,
       review
     );
