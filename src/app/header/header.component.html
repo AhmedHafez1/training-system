@@ -5,4 +5,12 @@
   <button mat-icon-button [routerLink]="['courses']">
     <mat-icon aria-hidden="false">home</mat-icon>
   </button>
+
+  <button
+    mat-icon-button
+    (click)="toggleDetails()"
+    matTooltip="Show/Hide Details"
+  >
+    <mat-icon aria-hidden="false">visibility</mat-icon>
+  </button>
 </mat-toolbar>

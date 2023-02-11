@@ -400,6 +400,13 @@
       "review": "Good Course",
       "courseId": "2",
       "id": "66763ac9-7f59-4f3b-9917-97e8ab6c6375"
+    },
+    {
+      "user": "سارة",
+      "rating": 5,
+      "review": "Very good ",
+      "courseId": "2",
+      "id": "d56cf59b-dffb-4978-8f37-88a56f7f2d19"
     }
   ]
 }

@@ -1,5 +1,11 @@
+import {
+  ToggleDetailsState,
+  ToggleDetailsStateModel,
+} from './../state/toggle-details.state';
 import { Course } from './../shared/models/course';
 import { Component, Input } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Select } from '@ngxs/store';
 
 @Component({
   selector: 'app-course-item',
@@ -8,6 +14,7 @@ import { Component, Input } from '@angular/core';
 })
 export class CourseItemComponent {
   @Input() course!: Course;
+  @Select(ToggleDetailsState) details$!: Observable<ToggleDetailsStateModel>;
 
   review() {}
 

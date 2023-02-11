@@ -21,6 +21,10 @@ import { AddReviewComponent } from './add-review/add-review.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { ToggleDetailsState } from './state/toggle-details.state';
 
 export const API_URL = new InjectionToken<string>('API_URL');
 @NgModule({
@@ -48,6 +52,9 @@ export const API_URL = new InjectionToken<string>('API_URL');
     MatTooltipModule,
     MatInputModule,
     MatFormFieldModule,
+    NgxsModule.forRoot([ToggleDetailsState]),
+    NgxsLoggerPluginModule.forRoot(),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
   providers: [{ provide: API_URL, useValue: 'http://localhost:3000' }],
   bootstrap: [AppComponent],
