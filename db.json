@@ -378,6 +378,28 @@
       "review": "eewhjkwejkjewhrjhwejhewrjkjkewr",
       "courseId": "4",
       "id": "ccc2b9a3-bd84-403d-a9ee-76e31b81e75d"
+    },
+    {
+      "user": "ghjhkjly.hafez@gmail.comdvdvvvvvvvvvvvvvv",
+      "rating": 3,
+      "review": "csdcccccjk",
+      "courseId": "2",
+      "id": "e66fb7b2-4c27-44d4-8581-c8bddb046165"
+    },
+    {
+      "courseId": "2",
+      "id": "7e6c8146-65c7-43b1-a378-f1ca18948f76"
+    },
+    {
+      "courseId": "2",
+      "id": "2c35a304-a2c1-46aa-aecc-5c2eb76fdf0c"
+    },
+    {
+      "user": "admin",
+      "rating": 4.3,
+      "review": "Good Course",
+      "courseId": "2",
+      "id": "66763ac9-7f59-4f3b-9917-97e8ab6c6375"
     }
   ]
 }

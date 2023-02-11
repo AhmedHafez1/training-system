@@ -1,6 +1,7 @@
 import {
   BehaviorSubject,
   combineLatest,
+  filter,
   map,
   mergeMap,
   Observable,
@@ -46,11 +47,13 @@ export class CourseDetailsComponent implements OnInit {
   addReview() {
     const dialogRef = this.dialog.open(AddReviewComponent, {
       data: { courseId: this.id },
+      width: '400px',
     });
 
     dialogRef
       .afterClosed()
       .pipe(
+        filter((data) => Boolean(data)),
         mergeMap((data) =>
           this.courseService.addReview(this.id, {
             ...data,

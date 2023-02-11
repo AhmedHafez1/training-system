@@ -1,14 +1,8 @@
 <mat-toolbar color="primary">
-  <span>Training Academy</span>
+  <span [routerLink]="['courses']" class="title">Training Academy</span>
   <span class="spacer"></span>
 
-  <button mat-icon-button>
-    <mat-icon aria-hidden="false">settings</mat-icon>
-  </button>
-  <button mat-icon-button>
-    <mat-icon aria-hidden="false">search</mat-icon>
-  </button>
-  <button mat-icon-button>
-    <mat-icon aria-hidden="false">shopping_cart</mat-icon>
+  <button mat-icon-button [routerLink]="['courses']">
+    <mat-icon aria-hidden="false">home</mat-icon>
   </button>
 </mat-toolbar>
