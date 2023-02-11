@@ -16,7 +16,11 @@
         >thumb_up</mat-icon
       >
       {{ course.likes }}
+      <mat-icon class="icon icon__like" aria-hidden="false" (click)="dislike()"
+        >thumb_down</mat-icon
+      >
     </div>
+
     <div class="content">
       <mat-icon class="icon icon__review" aria-hidden="false" (click)="review()"
         >rate_review</mat-icon

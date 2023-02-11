@@ -14,4 +14,8 @@ export class CourseItemComponent {
   like() {
     this.course.likes++;
   }
+
+  dislike() {
+    this.course.likes > 0 && this.course.likes--;
+  }
 }
