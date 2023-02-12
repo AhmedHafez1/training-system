@@ -1,3 +1,6 @@
+import { GetCoursesAction } from './../state/course.actions';
+import { CourseState, CourseStateModel } from './../state/course.state';
+import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { Component, Inject, inject, OnInit } from '@angular/core';
 import { Course } from '../shared/models/course';
@@ -9,11 +12,11 @@ import { CourseService } from '../course.service';
   styleUrls: ['./course-list.component.scss'],
 })
 export class CourseListComponent implements OnInit {
-  public courses$!: Observable<Course[]>;
+  @Select() course$!: Observable<CourseStateModel>;
 
-  constructor(private courseService: CourseService) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.courses$ = this.courseService.getCourses();
+    this.store.dispatch(new GetCoursesAction());
   }
 }

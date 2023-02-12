@@ -1,6 +1,6 @@
-<div class="course-list" *ngIf="courses$ | async as courses">
+<div class="course-list" *ngIf="course$ | async as courseState">
   <app-course-item
     [course]="course"
-    *ngFor="let course of courses"
+    *ngFor="let course of courseState.courses"
   ></app-course-item>
 </div>

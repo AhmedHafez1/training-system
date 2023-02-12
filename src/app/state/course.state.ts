@@ -5,9 +5,9 @@ import {
   GetCoursesFailureAction,
 } from './course.actions';
 import { Injectable } from '@angular/core';
-import { Action, State, StateContext } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Course } from './../shared/models/course';
-import { catchError, mergeMap, of } from 'rxjs';
+import { catchError, mergeMap, of, tap } from 'rxjs';
 export interface CourseStateModel {
   courses: Course[];
   error: string | null;
@@ -24,12 +24,22 @@ export interface CourseStateModel {
 export class CourseState {
   constructor(private courseService: CourseService) {}
 
+  @Selector()
+  static coursesSelector(state: CourseStateModel) {
+    return state.courses;
+  }
+
+  @Selector()
+  static errorSelector(state: CourseStateModel) {
+    return state.error;
+  }
+
   @Action(GetCoursesAction)
   getCourses({ dispatch }: StateContext<CourseStateModel>) {
     return this.courseService.getCourses().pipe(
-      mergeMap((courses) => dispatch(new GetCoursesSuccessAction(courses))),
+      tap((courses) => dispatch(new GetCoursesSuccessAction(courses))),
       catchError((error) =>
-        of(dispatch(new GetCoursesFailureAction(error.message)))
+        dispatch(new GetCoursesFailureAction(error.message))
       )
     );
   }
@@ -37,16 +47,16 @@ export class CourseState {
   @Action(GetCoursesSuccessAction)
   getCoursesSuccess(
     { patchState }: StateContext<CourseStateModel>,
-    action: GetCoursesSuccessAction
+    { courses }: GetCoursesSuccessAction
   ) {
-    patchState({ courses: action.courses, error: null });
+    patchState({ courses, error: null });
   }
 
-  @Action(GetCoursesSuccessAction)
+  @Action(GetCoursesFailureAction)
   getCoursesFailure(
     { patchState }: StateContext<CourseStateModel>,
-    action: GetCoursesFailureAction
+    { message }: GetCoursesFailureAction
   ) {
-    patchState({ courses: [], error: action.message });
+    patchState({ error: message });
   }
 }

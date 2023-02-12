@@ -1,3 +1,4 @@
+import { CourseState } from './state/course.state';
 import { MatCardModule } from '@angular/material/card';
 import { NgModule, InjectionToken } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,11 +21,13 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { AddReviewComponent } from './add-review/add-review.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { DetailsState } from './state/details.state';
+import { ErrorComponent } from './error/error.component';
 
 export const API_URL = new InjectionToken<string>('API_URL');
 @NgModule({
@@ -36,6 +39,7 @@ export const API_URL = new InjectionToken<string>('API_URL');
     CourseDetailsComponent,
     CourseItemComponent,
     AddReviewComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ export const API_URL = new InjectionToken<string>('API_URL');
     MatTooltipModule,
     MatInputModule,
     MatFormFieldModule,
-    NgxsModule.forRoot([DetailsState]),
+    MatSnackBarModule,
+    NgxsModule.forRoot([DetailsState, CourseState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
   ],
