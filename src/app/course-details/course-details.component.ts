@@ -1,3 +1,5 @@
+import { GetCoursesAction } from './../state/course.actions';
+import { CourseState } from './../state/course.state';
 import { DetailsStateModel } from './../state/details.state';
 import {
   BehaviorSubject,
@@ -14,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddReviewComponent } from '../add-review/add-review.component';
 import { Review } from '../shared/models/review';
-import { Select } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { DetailsState } from '../state/details.state';
 
 @Component({
@@ -24,26 +26,26 @@ import { DetailsState } from '../state/details.state';
 })
 export class CourseDetailsComponent implements OnInit {
   @Select(DetailsState.showState) show$!: Observable<boolean>;
-
-  public course$!: Observable<Course>;
-  public addedReview = new BehaviorSubject<Review | null>(null);
+  private addedReview = new BehaviorSubject<Review | null>(null);
   private id!: number;
+  public course$!: Observable<Course>;
 
   constructor(
     private courseService: CourseService,
     private activatedRoute: ActivatedRoute,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private store: Store
   ) {}
 
   ngOnInit(): void {
     this.id = +this.activatedRoute.snapshot.paramMap.get('id')!;
     this.course$ = combineLatest([
-      this.courseService.getCourseById(this.id),
+      this.store.select(CourseState.courseSelector(this.id)),
       this.addedReview,
     ]).pipe(
       map(([course, review]) => {
+        if (!course) this.store.dispatch(new GetCoursesAction());
         if (review) course.reviews.push(review);
-
         return course;
       })
     );

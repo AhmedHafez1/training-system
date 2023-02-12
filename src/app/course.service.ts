@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
   providedIn: 'root',
 })
 export class CourseService {
-  private baseUrl = 'http://localhost:3000/course';
+  private baseUrl = 'http://localhost:3000/courses';
 
   constructor(private http: HttpClient) {}
 

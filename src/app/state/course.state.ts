@@ -5,7 +5,13 @@ import {
   GetCoursesFailureAction,
 } from './course.actions';
 import { Injectable } from '@angular/core';
-import { Action, Selector, State, StateContext } from '@ngxs/store';
+import {
+  Action,
+  createSelector,
+  Selector,
+  State,
+  StateContext,
+} from '@ngxs/store';
 import { Course } from './../shared/models/course';
 import { catchError, mergeMap, of, tap } from 'rxjs';
 export interface CourseStateModel {
@@ -32,6 +38,12 @@ export class CourseState {
   @Selector()
   static errorSelector(state: CourseStateModel) {
     return state.error;
+  }
+
+  static courseSelector(id: number) {
+    return createSelector([CourseState], (state: CourseStateModel): Course => {
+      return state.courses.find((course) => course.id === id)!;
+    });
   }
 
   @Action(GetCoursesAction)
