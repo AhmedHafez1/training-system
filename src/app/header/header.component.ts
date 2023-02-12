@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { ToggleDetails } from '../state/toggle-details.actions';
+import { ToggleDetails } from '../state/details.actions';
 
 @Component({
   selector: 'app-header',

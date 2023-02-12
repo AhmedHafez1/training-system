@@ -22,7 +22,7 @@
       </p>
     </div>
     <mat-divider></mat-divider>
-    <div class="reviews">
+    <div class="reviews" *ngIf="show$ | async">
       <div class="reviews__header">
         <h3>Reviews</h3>
         <button

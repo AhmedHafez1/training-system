@@ -24,7 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { ToggleDetailsState } from './state/toggle-details.state';
+import { DetailsState } from './state/details.state';
 
 export const API_URL = new InjectionToken<string>('API_URL');
 @NgModule({
@@ -52,7 +52,7 @@ export const API_URL = new InjectionToken<string>('API_URL');
     MatTooltipModule,
     MatInputModule,
     MatFormFieldModule,
-    NgxsModule.forRoot([ToggleDetailsState]),
+    NgxsModule.forRoot([DetailsState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),
   ],

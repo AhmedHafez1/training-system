@@ -1,3 +1,4 @@
+import { DetailsStateModel } from './../state/details.state';
 import {
   BehaviorSubject,
   combineLatest,
@@ -13,6 +14,8 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddReviewComponent } from '../add-review/add-review.component';
 import { Review } from '../shared/models/review';
+import { Select } from '@ngxs/store';
+import { DetailsState } from '../state/details.state';
 
 @Component({
   selector: 'app-course-details',
@@ -20,6 +23,8 @@ import { Review } from '../shared/models/review';
   styleUrls: ['./course-details.component.scss'],
 })
 export class CourseDetailsComponent implements OnInit {
+  @Select(DetailsState.showState) show$!: Observable<boolean>;
+
   public course$!: Observable<Course>;
   public addedReview = new BehaviorSubject<Review | null>(null);
   private id!: number;
