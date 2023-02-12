@@ -11,7 +11,7 @@ import { Select } from '@ngxs/store';
 })
 export class CourseItemComponent {
   @Input() course!: Course;
-  @Select() details$!: Observable<DetailsStateModel>;
+  @Select(DetailsState.showState) show$!: Observable<DetailsStateModel>;
 
   like() {
     this.course.likes++;

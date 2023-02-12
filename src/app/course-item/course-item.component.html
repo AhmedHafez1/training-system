@@ -6,7 +6,7 @@
   <div class="header-image">
     <img [src]="course.image" [routerLink]="[course.id]" />
   </div>
-  <mat-card-content class="course-info" *ngIf="(details$ | async)?.show">
+  <mat-card-content class="course-info" *ngIf="show$ | async">
     <div class="content">
       <mat-icon class="icon icon__hour" aria-hidden="false">schedule</mat-icon>
       {{ course.hours }}
