@@ -9,7 +9,7 @@ export interface DetailsStateModel {
 @State<DetailsStateModel>({
   name: 'details',
   defaults: {
-    show: false,
+    show: true,
   },
 })
 @Injectable()
