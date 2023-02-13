@@ -1,6 +1,5 @@
 import { GetCoursesAction } from './../state/course.actions';
 import { CourseState } from './../state/course.state';
-import { DetailsStateModel } from './../state/details.state';
 import {
   BehaviorSubject,
   combineLatest,
