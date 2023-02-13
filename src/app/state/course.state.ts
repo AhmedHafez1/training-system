@@ -94,7 +94,7 @@ export class CourseState {
     { review }: AddReviewSuccessAction
   ) {
     const courses = [...getState().courses];
-    const course = courses.find((c) => c.id === review.courseId);
+    const course = courses.find((c) => c.id === +review.courseId);
     course?.reviews.push(review);
     patchState({ courses: [...courses], error: null });
   }

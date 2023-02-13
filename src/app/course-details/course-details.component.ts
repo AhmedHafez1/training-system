@@ -53,7 +53,7 @@ export class CourseDetailsComponent implements OnInit {
       .afterClosed()
       .pipe(filter((data) => Boolean(data)))
       .subscribe((review: Review) =>
-        this.store.dispatch(new AddReviewAction(review.courseId, review))
+        this.store.dispatch(new AddReviewAction(this.id, review))
       );
   }
 }
