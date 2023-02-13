@@ -1,3 +1,8 @@
+import {
+  AddReviewAction,
+  AddReviewFailureAction,
+  AddReviewSuccessAction,
+} from './review.actions';
 import { CourseService } from './../course.service';
 import {
   GetCoursesAction,
@@ -68,6 +73,36 @@ export class CourseState {
   getCoursesFailure(
     { patchState }: StateContext<CourseStateModel>,
     { message }: GetCoursesFailureAction
+  ) {
+    patchState({ error: message });
+  }
+
+  @Action(AddReviewAction)
+  addReview(
+    { dispatch }: StateContext<CourseStateModel>,
+    { review, courseId }: AddReviewAction
+  ) {
+    return this.courseService.addReview(courseId, review).pipe(
+      tap((review) => dispatch(new AddReviewSuccessAction(review))),
+      catchError((error) => dispatch(new AddReviewFailureAction(error.message)))
+    );
+  }
+
+  @Action(AddReviewSuccessAction)
+  addReviewSuccess(
+    { getState, patchState }: StateContext<CourseStateModel>,
+    { review }: AddReviewSuccessAction
+  ) {
+    const courses = [...getState().courses];
+    const course = courses.find((c) => c.id === review.courseId);
+    course?.reviews.push(review);
+    patchState({ courses: [...courses], error: null });
+  }
+
+  @Action(AddReviewFailureAction)
+  addReviewFailure(
+    { patchState }: StateContext<CourseStateModel>,
+    { message }: AddReviewFailureAction
   ) {
     patchState({ error: message });
   }

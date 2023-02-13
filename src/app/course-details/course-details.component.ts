@@ -7,6 +7,7 @@ import {
   map,
   mergeMap,
   Observable,
+  tap,
 } from 'rxjs';
 import { Course } from './../shared/models/course';
 import { Component, OnInit } from '@angular/core';
@@ -17,6 +18,7 @@ import { AddReviewComponent } from '../add-review/add-review.component';
 import { Review } from '../shared/models/review';
 import { Select, Store } from '@ngxs/store';
 import { DetailsState } from '../state/details.state';
+import { AddReviewAction } from '../state/review.actions';
 
 @Component({
   selector: 'app-course-details',
@@ -25,12 +27,10 @@ import { DetailsState } from '../state/details.state';
 })
 export class CourseDetailsComponent implements OnInit {
   @Select(DetailsState.showState) show$!: Observable<boolean>;
-  private addedReview = new BehaviorSubject<Review | null>(null);
   private id!: number;
   public course$!: Observable<Course>;
 
   constructor(
-    private courseService: CourseService,
     private activatedRoute: ActivatedRoute,
     private dialog: MatDialog,
     private store: Store
@@ -38,16 +38,9 @@ export class CourseDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.activatedRoute.snapshot.paramMap.get('id')!;
-    this.course$ = combineLatest([
-      this.store.select(CourseState.courseSelector(this.id)),
-      this.addedReview,
-    ]).pipe(
-      map(([course, review]) => {
-        if (!course) this.store.dispatch(new GetCoursesAction());
-        if (review) course.reviews.push(review);
-        return course;
-      })
-    );
+    const courses = this.store.selectSnapshot(CourseState.coursesSelector);
+    if (!courses.length) this.store.dispatch(new GetCoursesAction());
+    this.course$ = this.store.select(CourseState.courseSelector(this.id));
   }
 
   addReview() {
@@ -58,15 +51,9 @@ export class CourseDetailsComponent implements OnInit {
 
     dialogRef
       .afterClosed()
-      .pipe(
-        filter((data) => Boolean(data)),
-        mergeMap((data) =>
-          this.courseService.addReview(this.id, {
-            ...data,
-            courseId: this.id,
-          } as Review)
-        )
-      )
-      .subscribe((review) => this.addedReview.next(review));
+      .pipe(filter((data) => Boolean(data)))
+      .subscribe((review: Review) =>
+        this.store.dispatch(new AddReviewAction(review.courseId, review))
+      );
   }
 }

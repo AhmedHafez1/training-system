@@ -4,11 +4,11 @@ export class AddReviewAction {
   static readonly type = '[Review Modal] Add Review';
   constructor(public courseId: number, public review: Review) {}
 }
-export class AddReviewActionSuccess {
+export class AddReviewSuccessAction {
   static readonly type = '[Review API] Add Review Success';
-  constructor(public courseId: number, public review: Review) {}
+  constructor(public review: Review) {}
 }
-export class AddReviewActionFailure {
+export class AddReviewFailureAction {
   static readonly type = '[Review API] Add Review Failure';
-  constructor(public courseId: number, public review: Review) {}
+  constructor(public message: string) {}
 }
