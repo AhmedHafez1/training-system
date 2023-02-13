@@ -1,9 +1,8 @@
 {
   "courses": [
     {
-      "id": 1,
       "name": "Introduction to Angular",
-      "instructor": "John Doe",
+      "instructor": "Abdelghany Hafez",
       "hours": 20,
       "likes": 1500,
       "image": "assets/images/angular.png",
@@ -26,13 +25,13 @@
           "review": "The course material was comprehensive and easy to understand.",
           "courseId": 1
         }
-      ]
+      ],
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Advanced JavaScript",
       "instructor": "Jane Doe",
-      "hours": 30,
+      "hours": 50,
       "likes": 1000,
       "image": "assets/images/js.png",
       "reviews": [
@@ -54,7 +53,8 @@
           "review": "The course was challenging but worth it.",
           "courseId": 2
         }
-      ]
+      ],
+      "id": 2
     },
     {
       "id": 3,
@@ -85,9 +85,8 @@
       ]
     },
     {
-      "id": 4,
       "name": "Node.js Essentials",
-      "instructor": "Sarah Johnson",
+      "instructor": "Mariam Ahmed",
       "hours": 22,
       "likes": 1400,
       "image": "assets/images/node.jpg",
@@ -104,7 +103,8 @@
           "review": "The instructor was clear in explanation",
           "courseId": 4
         }
-      ]
+      ],
+      "id": 4
     },
     {
       "id": 5,
@@ -217,6 +217,15 @@
           "courseId": 8
         }
       ]
+    },
+    {
+      "name": "Angular Routing",
+      "instructor": "Ahmed Abdelghany",
+      "hours": 4,
+      "likes": 0,
+      "image": "assets/images/angular.png",
+      "reviews": [],
+      "id": 9
     }
   ],
   "reviews": [

@@ -1,5 +1,5 @@
 import { CourseEditComponent } from './../course-edit/course-edit.component';
-import { GetCoursesAction } from './../state/course.actions';
+import { GetCoursesAction, EditCourseAction } from './../state/course.actions';
 import { CourseState } from './../state/course.state';
 import {
   BehaviorSubject,
@@ -58,6 +58,8 @@ export class CourseDetailsComponent implements OnInit {
 
     this.modalService
       .openDialog(CourseEditComponent, course, '600px')
-      .subscribe();
+      .subscribe((course) =>
+        this.store.dispatch(new EditCourseAction(course, this.id))
+      );
   }
 }

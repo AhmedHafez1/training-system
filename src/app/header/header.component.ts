@@ -1,3 +1,4 @@
+import { AddCourseAction } from './../state/course.actions';
 import { ModalService } from './../modal.service';
 import { Component } from '@angular/core';
 import { Store } from '@ngxs/store';
@@ -19,6 +20,6 @@ export class HeaderComponent {
   addCourse() {
     this.modalService
       .openDialog(CourseEditComponent, null, '600px')
-      .subscribe();
+      .subscribe((course) => this.store.dispatch(new AddCourseAction(course)));
   }
 }

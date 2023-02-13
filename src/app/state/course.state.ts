@@ -8,6 +8,12 @@ import {
   GetCoursesAction,
   GetCoursesSuccessAction,
   GetCoursesFailureAction,
+  AddCourseAction,
+  AddCourseSuccessAction,
+  AddCourseFailureAction,
+  EditCourseAction,
+  EditCourseSuccessAction,
+  EditCourseFailureAction,
 } from './course.actions';
 import { Injectable } from '@angular/core';
 import {
@@ -103,6 +109,68 @@ export class CourseState {
   addReviewFailure(
     { patchState }: StateContext<CourseStateModel>,
     { message }: AddReviewFailureAction
+  ) {
+    patchState({ error: message });
+  }
+
+  @Action(AddCourseAction)
+  addCourse(
+    { dispatch }: StateContext<CourseStateModel>,
+    { course }: AddCourseAction
+  ) {
+    return this.courseService.addCourse(course).pipe(
+      tap((course) => dispatch(new AddCourseSuccessAction(course))),
+      catchError((error) => dispatch(new AddCourseFailureAction(error.message)))
+    );
+  }
+
+  @Action(AddCourseSuccessAction)
+  addCourseSuccess(
+    { getState, patchState }: StateContext<CourseStateModel>,
+    { course }: AddCourseSuccessAction
+  ) {
+    const courses = [...getState().courses];
+
+    patchState({ courses: [...courses, course], error: null });
+  }
+
+  @Action(AddCourseFailureAction)
+  addCourseFailure(
+    { patchState }: StateContext<CourseStateModel>,
+    { message }: AddCourseFailureAction
+  ) {
+    patchState({ error: message });
+  }
+
+  @Action(EditCourseAction)
+  editCourse(
+    { dispatch }: StateContext<CourseStateModel>,
+    { course, id }: EditCourseAction
+  ) {
+    return this.courseService.editCourse(course, id).pipe(
+      tap((course) => dispatch(new EditCourseSuccessAction(course))),
+      catchError((error) =>
+        dispatch(new EditCourseFailureAction(error.message))
+      )
+    );
+  }
+
+  @Action(EditCourseSuccessAction)
+  editCourseSuccess(
+    { getState, patchState }: StateContext<CourseStateModel>,
+    { course }: EditCourseSuccessAction
+  ) {
+    const courses = getState().courses.map((c) =>
+      c.id === course.id ? course : c
+    );
+
+    patchState({ courses, error: null });
+  }
+
+  @Action(EditCourseFailureAction)
+  editCourseFailure(
+    { patchState }: StateContext<CourseStateModel>,
+    { message }: EditCourseFailureAction
   ) {
     patchState({ error: message });
   }

@@ -22,6 +22,14 @@ export class CourseService {
     return this.http.get<Course>(`${this.baseUrl}/${id}`);
   }
 
+  addCourse(course: Course): Observable<Course> {
+    return this.http.post<Course>(this.baseUrl, course);
+  }
+
+  editCourse(course: Course, id: number): Observable<Course> {
+    return this.http.put<Course>(`${this.baseUrl}/${id}`, course);
+  }
+
   addReview(courseId: number, review: Review): Observable<Review> {
     review.id = uuidv4();
     return this.http.post<Review>(
