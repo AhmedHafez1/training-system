@@ -33,6 +33,14 @@
         >
           <mat-icon>add</mat-icon>
         </button>
+        <button
+          mat-icon-button
+          color="accent"
+          matTooltip="Edit Course"
+          (click)="editCourse()"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
       </div>
 
       <div *ngFor="let review of course.reviews" class="review">

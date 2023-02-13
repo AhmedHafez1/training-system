@@ -1,1 +1,45 @@
-<p>course-edit works!</p>
+<div class="dialog">
+  <h2 mat-dialog-title>{{ mode === "add" ? "Add" : "Edit" }} Course</h2>
+  <mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name" />
+      <mat-error *ngIf="getErrorMessage('name')">
+        {{ getErrorMessage("name") }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Instructor" formControlName="instructor" />
+      <mat-error *ngIf="getErrorMessage('instructor')">
+        {{ getErrorMessage("instructor") }}
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        matInput
+        type="number"
+        placeholder="Hours"
+        formControlName="hours"
+      />
+      <mat-error *ngIf="getErrorMessage('hours')">
+        Hours is required
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Image URL" formControlName="image" />
+      <mat-error *ngIf="getErrorMessage('image')">
+        Image URL is required
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      [mat-dialog-close]="form.value"
+    >
+      {{ mode === "add" ? "Add" : "Save" }}
+    </button>
+  </mat-dialog-actions>
+</div>

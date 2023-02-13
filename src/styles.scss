@@ -28,3 +28,17 @@ body {
 .mat-mdc-card-content > :last-child:not(.mat-mdc-card-footer) {
   margin-bottom: auto !important;
 }
+
+.dialog {
+  padding: 15px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+mat-form-field {
+  width: 100%;
+}

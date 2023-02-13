@@ -1,3 +1,4 @@
+import { CourseEditComponent } from './../course-edit/course-edit.component';
 import { GetCoursesAction } from './../state/course.actions';
 import { CourseState } from './../state/course.state';
 import {
@@ -11,14 +12,13 @@ import {
 } from 'rxjs';
 import { Course } from './../shared/models/course';
 import { Component, OnInit } from '@angular/core';
-import { CourseService } from '../course.service';
 import { ActivatedRoute } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import { AddReviewComponent } from '../add-review/add-review.component';
 import { Review } from '../shared/models/review';
 import { Select, Store } from '@ngxs/store';
 import { DetailsState } from '../state/details.state';
 import { AddReviewAction } from '../state/review.actions';
+import { ModalService } from '../modal.service';
 
 @Component({
   selector: 'app-course-details',
@@ -32,8 +32,8 @@ export class CourseDetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private dialog: MatDialog,
-    private store: Store
+    private store: Store,
+    private modalService: ModalService
   ) {}
 
   ngOnInit(): void {
@@ -44,16 +44,20 @@ export class CourseDetailsComponent implements OnInit {
   }
 
   addReview() {
-    const dialogRef = this.dialog.open(AddReviewComponent, {
-      data: { courseId: this.id },
-      width: '400px',
-    });
-
-    dialogRef
-      .afterClosed()
-      .pipe(filter((data) => Boolean(data)))
+    this.modalService
+      .openDialog(AddReviewComponent, { courseId: this.id }, '400px')
       .subscribe((review: Review) =>
         this.store.dispatch(new AddReviewAction(this.id, review))
       );
+  }
+
+  editCourse() {
+    const course = this.store.selectSnapshot(
+      CourseState.courseSelector(this.id)
+    ) as Course;
+
+    this.modalService
+      .openDialog(CourseEditComponent, course, '600px')
+      .subscribe();
   }
 }
