@@ -145,9 +145,9 @@ export class CourseState {
   @Action(EditCourseAction)
   editCourse(
     { dispatch }: StateContext<CourseStateModel>,
-    { course, id }: EditCourseAction
+    { course }: EditCourseAction
   ) {
-    return this.courseService.editCourse(course, id).pipe(
+    return this.courseService.editCourse(course).pipe(
       tap((course) => dispatch(new EditCourseSuccessAction(course))),
       catchError((error) =>
         dispatch(new EditCourseFailureAction(error.message))

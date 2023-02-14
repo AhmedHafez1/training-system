@@ -16,7 +16,7 @@ export class GetCoursesFailureAction {
 
 export class EditCourseAction {
   static readonly type = '[Course Page] Edit Course';
-  constructor(public course: Course, public id: number) {}
+  constructor(public course: Course) {}
 }
 
 export class EditCourseSuccessAction {

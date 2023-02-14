@@ -58,8 +58,6 @@ export class CourseDetailsComponent implements OnInit {
 
     this.modalService
       .openDialog(CourseEditComponent, course, '600px')
-      .subscribe((course) =>
-        this.store.dispatch(new EditCourseAction(course, this.id))
-      );
+      .subscribe((course) => this.store.dispatch(new EditCourseAction(course)));
   }
 }
