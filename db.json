@@ -4,7 +4,7 @@
       "name": "Introduction to Angular",
       "instructor": "Abdelghany Hafez",
       "hours": 20,
-      "likes": 1500,
+      "likes": 1512,
       "image": "assets/images/angular.png",
       "reviews": [
         {
@@ -61,7 +61,7 @@
       "name": "React Fundamentals",
       "instructor": "Jim Smith",
       "hours": 25,
-      "likes": 1300,
+      "likes": 1279,
       "image": "assets/images/react.jpg",
       "reviews": [
         {
@@ -88,7 +88,7 @@
       "name": "Node.js Essentials",
       "instructor": "Mariam Ahmed",
       "hours": 22,
-      "likes": 1400,
+      "likes": 1402,
       "image": "assets/images/node.jpg",
       "reviews": [
         {
@@ -219,13 +219,13 @@
       ]
     },
     {
+      "id": 9,
       "name": "Angular Routing",
       "instructor": "Ahmed Abdelghany",
-      "hours": 4,
-      "likes": 0,
+      "hours": 30,
+      "likes": 50,
       "image": "assets/images/angular.png",
-      "reviews": [],
-      "id": 9
+      "reviews": []
     }
   ],
   "reviews": [
@@ -479,6 +479,20 @@
       "review": "ertertertertererterte",
       "id": "b9ae72e6-1d30-4342-9861-d783f8a31073",
       "courseId": "4"
+    },
+    {
+      "user": "Mariam",
+      "rating": 4,
+      "review": "Perfect course",
+      "id": "147faee8-a823-4209-a889-d5369bf541d3",
+      "courseId": "4"
+    },
+    {
+      "user": "Mariam",
+      "rating": 5,
+      "review": "Excellent Course baba",
+      "id": "760c09df-3d41-40a0-9727-a338286b6815",
+      "courseId": "9"
     }
   ]
 }
